@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Hello world</h1>
+    <p>This is a template, that has access to data into request, as you can see below:</p>
+    <p>User from request: <strong>{{request.user}}</strong></p>
+{% endblock content %}
