@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Product Detail | {{product}}{% endblock head_title %}
+
+{% block content %}
+<h1>Products detail</h1>
+<h3>{{product}}</h3>
+<p>
+{% if product.description is not None or product.description is not '' %}
+{{product.description}}
+{% else %}
+Description is comming soon!
+{% endif %}
+</p>
+<p>It's just for <strong>US$ {{product.price}}</strong></p>
+<p>{{product.summary}}</p>
+<p>Is product featured? <strong>{{ product.is_featured|upper }}</strong></p>
+{% endblock content %}

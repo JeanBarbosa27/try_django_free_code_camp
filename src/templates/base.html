@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Coding for entrepreneurs is cool!</title>
+    <title>
+        {% block head_title %}
+        Coding for entrepreneurs is cool!
+        {% endblock head_title %}
+    </title>
 </head>
 <body>
     {% include 'navbar.html' %}
