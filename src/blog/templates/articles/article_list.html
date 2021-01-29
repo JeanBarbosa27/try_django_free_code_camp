@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Blog{% endblock head_title %}
+
+{% block content %}
+    <h1>Blog</h1>
+    <ol>
+    {% for article in object_list %}
+        {% if article.active %}
+        <li>
+            <a href="{{ article.get_absolute_url }}">{{article}}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ol>
+    <a href="{% url 'blog:article_create' %}">Create a new article</a>
+{% endblock content %}

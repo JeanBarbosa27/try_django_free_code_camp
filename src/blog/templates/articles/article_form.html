@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Create or update article{% endblock head_title %}
+
+{% block content %}
+<h1>Create or update article</h1>
+<h5>You can create or update an article by filling up the form bellow.</h5>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    {% if article.id %}
+    <a href="{% url 'blog:article_detail' article.id %}">Cancel</a>
+    <a href="{% url 'blog:article_delete' article.id %}">Delete</a>
+    {% else %}
+    <a href="{% url 'blog:index' %}">Cancel</a>
+    {% endif %}
+
+    <input type="submit" value="Save" />
+</form>
+
+
+{% endblock content %}
