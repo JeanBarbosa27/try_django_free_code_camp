@@ -9,4 +9,7 @@
     <li><a href={{product.get_absolute_url}}>{{product}}</a></li>
 {% endfor %}
 </ul>
+<hr/>
+<p><a href={% url 'products:create_product_raw_form' %}>Create product with raw form</a></p>
+<p><a href="{% url 'products:create_product_model_form' %}">Create product with model form</a></p>
 {% endblock content %}

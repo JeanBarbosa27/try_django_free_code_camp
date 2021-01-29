@@ -3,16 +3,33 @@
 {% block head_title %}Product Detail | {{product}}{% endblock head_title %}
 
 {% block content %}
-<h1>Products detail</h1>
+<h1>Product detail</h1>
 <h3>{{product}}</h3>
 <p>
-{% if product.description is not None or product.description is not '' %}
-{{product.description}}
-{% else %}
-Description is comming soon!
-{% endif %}
+    <strong>Description:</strong>
+    {% if product.description %}
+    {{product.description}}
+    {% else %}
+    it's comming soon!
+    {% endif %}
 </p>
-<p>It's just for <strong>US$ {{product.price}}</strong></p>
-<p>{{product.summary}}</p>
+<p><strong>Price:</strong> It's just for <strong>US$ {{product.price}}</strong></p>
+<p><strong>Summary:</strong>{{product.summary}}</p>
 <p>Is product featured? <strong>{{ product.is_featured|upper }}</strong></p>
+<p>Actions:</p>
+<ul>
+    <li>
+        <a
+            href="{% url 'products:update_product_raw_form' product.id %}"
+        >Edit with raw form</a>
+    </li>
+    <li>
+        <a
+            href="{% url 'products:update_product_model_form' product.id %}"
+        >Edit with model form</a>
+    </li>
+    <li>
+        <a href="{% url 'products:product_delete' product.id %}">Delete</a>
+    </li>
+</ul>
 {% endblock content %}

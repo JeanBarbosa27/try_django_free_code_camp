@@ -12,7 +12,7 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("product_detail", kwargs={"product_id": self.id})
+        return reverse("products:product_detail", kwargs={"product_id": self.id})
 
     def is_featured(self):
         return 'yes' if self.featured else 'no'
