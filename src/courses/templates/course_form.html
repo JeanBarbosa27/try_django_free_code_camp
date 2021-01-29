@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{page_title}}{% endblock head_title %}
+
+{% block content %}
+<h1>{{page_title}}{% if request.course_id %}{{course}}{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p>
+        <a href="{% url 'courses:index' %}">Cancel</a>
+        <input type="submit" value="Save"/>
+    </p>
+</form>
+{% endblock content %}
