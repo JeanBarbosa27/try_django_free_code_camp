@@ -21,11 +21,12 @@ class CoursesView(View):
 
 class CoursesListView(View):
     template_name = 'courses_list.html'
-    courses = Course.objects.all()
 
     def get(self, request, *args, **kwargs):
+        courses = Course.objects.all()
+
         context = {
-            'courses': self.courses,
+            'courses': courses,
             'page_title': 'Courses'
         }
 
