@@ -5,4 +5,8 @@
 {% block content %}
 <h1>{{course}}</h1>
 <p>{{course.description}}</p>
+<p>
+    <a href="{% url 'courses:course_update' course.id %}">Edit</a>
+    <a href="{% url 'courses:course_delete' course.id %}">Delete</a>
+</p>
 {% endblock content %}

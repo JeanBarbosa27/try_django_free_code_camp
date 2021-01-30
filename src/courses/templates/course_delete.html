@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Delete course {{course}}{% endblock head_title %}
+
+{% block content %}
+<h1>Delete course {{course}}</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete <strong>{{course}}</strong>?</p>
+    <p>
+        <a href="{% url 'courses:index' %}">Cancel</a>
+        <input type="submit" value="Delete" />
+    </p>
+</form>
+{% endblock content %}

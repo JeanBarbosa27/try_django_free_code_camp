@@ -1,6 +1,8 @@
 from django.urls import path
 
 from .views import (
+    CourseCreateUpdateView,
+    CourseDeleteView,
     CourseFormView,
     CoursesListView,
     CoursesView,
@@ -19,12 +21,13 @@ urlpatterns = [
     ),
     path(
         'add/',
-        CourseFormView.as_view(page_title='Create a new course'),
+        CourseCreateUpdateView.as_view(page_title='Create a new course'),
         name='course_create'
     ),
     path(
         '<int:course_id>/update/',
-        CourseFormView.as_view(page_title='Update course'),
+        CourseCreateUpdateView.as_view(page_title='Update course'),
         name='course_update'
     ),
+    path('<int:course_id>/delete/', CourseDeleteView.as_view(), name='course_delete'),
 ]
