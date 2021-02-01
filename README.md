@@ -1,10 +1,11 @@
-# Try Django com Free Code Camp
-Esse projeto foi criado para acompanhar o vídeo de introdução ao Django, de modo a poder estudar com a abordagem feita pelo Free Code Camp, desde o total zero.
+# Try Django with Free Code Camp
+This project was created to follow the getting started in Django youtube video, for studing pruposes with Free Code Camp methods.
 
-## Dependências do projeto
-Para facilitar a instalação das dependências, foi utilizado o pipenv, apesar de no vídeo ser utilizada outra forma de criação de ambiente virtual, comigo deu alguns problemas ao tentar interagir com os models pelo admin, por isso optei por fazer dessa forma com uma versão mais atualizada do Python e do Django, nas quais o problema não foi replicado. Sendo assim, garanta que possui o pipenv instalado em sua máquina e antes de tudo, instale as dependências do projeto com o comando `pipenv install`.
+## Project dependencies
+To get dependencies intallations easy, it was used the pipenv, despite in the video it was used another virtual environment creation way, I had some problems when I tried to interact with models by the admin, due to it I choose to do this way with a newer Python and Django versions, in which the problem doesn't happend. Therefore, ensure that you have `pipenv` install in your machine and, before everything, install all project dependencies with the following command line `pipenv install`.
 
-## Rodando o projeto localmente
-Sempre que precisar rodar o projeto localmente, lembre-se de ativar o ambiente virtual com o comando `pipenv shell` e em seguida, considerando que está no mesmo diretório do arquivo `manage.py`, rode o comando `python manage.py runserver` ou se preferir apenas `./manage.py runserver`.
+## Run locally
+Everytime you need to run it locally, remember to activate the virtual environment with the following command line `pipenv shell` and then, considering that you are at the same directory of `manage.py` file, run the command line `python manage.py runserver` or if you prefer, just type `./manage.py runserver`.
 
-**Documento em contrução**
+
+**building document**
