@@ -3,13 +3,13 @@
 {% block head_title %}Delete {{article}}{% endblock head_title %}
 
 {% block content %}
-<h1>Delete article</h1>
+<h1 class="text-center text-light bg-info my-5">Delete article</h1>
 <form method="post">
     {% csrf_token %}
-    <p>Are you sure you <strong>want to delete {{article}}?</strong></p>
-    <p>
-        <a href="{% url 'blog:article_detail' article.id %}">Cancel</a>
-        <input type="submit" value="Delete" />
+    <p>Are you sure you want to delete <strong>{{article}}?</strong></p>
+    <p class="btn-group">
+        <a href="{% url 'blog:article_detail' article.id %}" blog>Cancel</a>
+        <input type="submit" value="Delete" class="btn btn-danger"/>
     </p>
 </form>
 {% endblock content %}

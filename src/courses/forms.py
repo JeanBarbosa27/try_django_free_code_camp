@@ -4,6 +4,13 @@ from .models import Course
 
 
 class CourseForm(forms.ModelForm):
+    title = forms.CharField(max_length=120, widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+
+    description = forms.CharField(max_length=500, widget=forms.Textarea(attrs={
+        'class': 'form-control'
+    }))
     class Meta:
         model = Course
         fields = '__all__'

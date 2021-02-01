@@ -3,13 +3,13 @@
 {% block head_title %}Delete course {{course}}{% endblock head_title %}
 
 {% block content %}
-<h1>Delete course {{course}}</h1>
+<h1 class="text-center text-light bg-info my-5">Delete course {{course}}</h1>
 <form method="post">
     {% csrf_token %}
     <p>Are you sure you want to delete <strong>{{course}}</strong>?</p>
-    <p>
-        <a href="{% url 'courses:index' %}">Cancel</a>
-        <input type="submit" value="Delete" />
+    <p class="btn-group">
+        <a href="{% url 'courses:index' %}" class="btn btn-info">Cancel</a>
+        <input type="submit" value="Delete" class="btn btn-danger"/>
     </p>
 </form>
 {% endblock content %}

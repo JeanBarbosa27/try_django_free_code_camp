@@ -2,11 +2,18 @@
 {% block head_title %}{{page_title}}{% endblock head_title %}
 
 {% block content %}
-<h1 class="text-center text-light bg-info mb-5">{{page_title}}</h1>
-<form method="post">
+<h1 class="text-center text-light bg-info my-5">{{page_title}}</h1>
+<form method="post" class="mb-5">
     {% csrf_token %}
-    {{form.as_p}}
-    <a href="{% url 'products:index' %}">Cancel</a>
-    <input type="submit" value="Save" />
+    {% for field in form %}
+        <div class="form-group">
+            <label id="{{field.id_for_label}}">{{field.label}}</label>
+            {{field}}
+        </div>
+    {% endfor %}
+    <div class="btn-group">
+        <a href="{% url 'products:index' %}" class="btn btn-info">Cancel</a>
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
 </form>
 {% endblock content %}

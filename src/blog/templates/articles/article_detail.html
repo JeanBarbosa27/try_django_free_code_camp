@@ -3,7 +3,7 @@
 {% block head_title %}{{article}} | Article Detail{% endblock head_title %}
 
 {% block content %}
-    <h1 class="text-center text-light bg-info mb-5">{{article}}</h1>
+    <h1 class="text-center text-light bg-info my-5">{{article}}</h1>
     <p>{{article.content}}</p>
     {% if request.user.is_staff %}
     <p class="btn btn-group">
