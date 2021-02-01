@@ -13,3 +13,7 @@ def link_is_active(request, url):
         return 'active'
 
     return ''
+
+@register.simple_tag
+def content_max_length(value, max_length):
+    return f"{value[:max_length]}..."

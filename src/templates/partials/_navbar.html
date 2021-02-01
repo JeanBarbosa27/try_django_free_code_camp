@@ -36,6 +36,11 @@
       <li class="nav-item  {% link_is_active request courses_url %}">
         <a class="nav-link" href="{% url 'courses:index' %}">Courses</a>
       </li>
+      {% if request.user.is_staff %}
+      <li class="nav-item">
+        <a class="nav-link" href="/admin" target="_blank">Admin</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>

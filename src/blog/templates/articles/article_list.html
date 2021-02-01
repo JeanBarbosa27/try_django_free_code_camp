@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load helpers %}
 
 {% block head_title %}Blog{% endblock head_title %}
 
@@ -9,7 +10,7 @@
         {% if article.active %}
         <li class="col-sm-12 col-lg-3 p-0 mr-2 mb-2 card">
             <a href="{{ article.get_absolute_url }}" class="card-header">{{article}}</a>
-            <span class="card-body">{{article.content}}</span>
+            <span class="card-body">{% content_max_length article.content 50 %}</span>
             <div class="card-footer btn-group">
                 <a href="{{article.get_absolute_url}}" class="btn btn-info">View</a>
                 {% if request.user.is_staff %}
