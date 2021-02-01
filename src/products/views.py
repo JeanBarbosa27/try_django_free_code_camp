@@ -32,7 +32,7 @@ def create_product_raw_form_view(request):
         form = ProductRawForm(request.POST)
         if form.is_valid():
             Product.objects.create(**form.cleaned_data)
-            return redirect('products:products_list')
+            return redirect('products:index')
 
 
     context = {'form': form, 'page_title': 'Create product with raw form' }
@@ -44,7 +44,7 @@ def update_product_raw_form_view(request, product_id):
     try:
         product = Product.objects.get(pk=product_id)
     except Product.DoesNotExist:
-        return redirect('products:products_list')
+        return redirect('products:index')
 
     initial_data = {
         'title': product.title,
@@ -81,7 +81,7 @@ def product_delete_view(request, product_id):
     product = Product.objects.get(pk=product_id)
     if request.method == 'POST':
         product.delete()
-        return redirect('products:products_list')
+        return redirect('products:index')
 
     context = {'product': product}
 
@@ -93,7 +93,7 @@ def create_product_model_form_view(request):
 
     if form.is_valid():
         form.save()
-        return redirect('products:products_list')
+        return redirect('products:index')
 
     context = { 'form': form, 'page_title': 'Create product with model form' }
 

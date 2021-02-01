@@ -3,7 +3,7 @@ from .views import products_list_view, product_detail_view, create_product_raw_f
 
 app_name = "products"
 urlpatterns = [
-    path('', products_list_view, name='products_list'),
+    path('', products_list_view, name='index'),
     path('<int:product_id>/', product_detail_view, name='product_detail'),
     path('<int:product_id>/delete', product_delete_view, name='product_delete'),
 
