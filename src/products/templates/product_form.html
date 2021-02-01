@@ -5,7 +5,7 @@
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <a href="{% url 'products:products_list' %}">Cancel</a>
+    <a href="{% url 'products:index' %}">Cancel</a>
     <input type="submit" value="Save" />
 </form>
 {% endblock content %}
