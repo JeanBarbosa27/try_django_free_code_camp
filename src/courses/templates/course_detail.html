@@ -3,10 +3,12 @@
 {% block head_title %}{{page_title}}{% endblock head_title %}
 
 {% block content %}
-<h1>{{course}}</h1>
+<h1 class="text-center text-light bg-info mb-5">{{course}}</h1>
 <p>{{course.description}}</p>
-<p>
-    <a href="{% url 'courses:course_update' course.id %}">Edit</a>
-    <a href="{% url 'courses:course_delete' course.id %}">Delete</a>
+{% if request.user.is_staff %}
+<p class="btn-group">
+    <a href="{% url 'courses:course_update' course.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'courses:course_delete' course.id %}" class="btn btn-danger">Delete</a>
 </p>
+{% endif %}
 {% endblock content %}

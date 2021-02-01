@@ -3,7 +3,7 @@
 {% block head_title %}Product Detail | {{product}}{% endblock head_title %}
 
 {% block content %}
-<h1>Product detail</h1>
+<h1 class="text-center text-light bg-info mb-5">Product detail</h1>
 <h3>{{product}}</h3>
 <p>
     <strong>Description:</strong>
@@ -16,20 +16,21 @@
 <p><strong>Price:</strong> It's just for <strong>US$ {{product.price}}</strong></p>
 <p><strong>Summary:</strong>{{product.summary}}</p>
 <p>Is product featured? <strong>{{ product.is_featured|upper }}</strong></p>
-<p>Actions:</p>
-<ul>
-    <li>
+{% if request.user.is_staff %}
+<p><strong>Actions:</strong></p>
+<div class="btn-group">
         <a
             href="{% url 'products:update_product_raw_form' product.id %}"
+            class="btn btn-info"
         >Edit with raw form</a>
-    </li>
-    <li>
         <a
             href="{% url 'products:update_product_model_form' product.id %}"
+            class="btn btn-primary"
         >Edit with model form</a>
-    </li>
-    <li>
-        <a href="{% url 'products:product_delete' product.id %}">Delete</a>
-    </li>
-</ul>
+        <a
+            href="{% url 'products:product_delete' product.id %}"
+            class="btn btn-danger"
+        >Delete</a>
+</div>
+{% endif %}
 {% endblock content %}

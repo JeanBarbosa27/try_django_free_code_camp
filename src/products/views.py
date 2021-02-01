@@ -72,7 +72,7 @@ def update_product_raw_form_view(request, product_id):
 
     context = {
         'form': form,
-        'page_title': f"Edit product {product.title}"
+        'page_title': f"Editing product {product.title}"
     }
 
     return render(request, 'product_form.html', context)
@@ -111,6 +111,6 @@ def update_product_model_form_view(request, product_id):
         form.save()
         return redirect('products:product_detail', product.id)
 
-    context = {'form': form, 'page_title': f"Edit {product}"}
+    context = {'form': form, 'page_title': f"Editing {product}"}
 
     return render(request, 'product_form.html', context)

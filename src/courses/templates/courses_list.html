@@ -3,16 +3,26 @@
 {% block head_title %}{{page_title}}{% endblock head_title %}
 
 {% block content %}
-    <h1>Courses</h1>
+    <h1 class="text-center text-light bg-info mb-5">Courses</h1>
 
-    <ul>
+    <ul class="row">
     {% for course in courses %}
-        <li>
-            {{course.id}} - <a href="{{course.get_absolute_url}}">{{course}}</a>
+        <li class="col-sm-12 col-lg-3 p-0 mr-2 mb-2 card">
+            <a href="{{course.get_absolute_url}}" class="card-header">{{course}}</a>
+            <span class="card-body">{{course.description}}</span>
+            <div class="card-footer btn-group">
+                <a href="{{course.get_absolute_url}}" class="btn btn-info">View</a>
+                {% if request.user.is_staff %}
+                <a href="{% url 'courses:course_update' course.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'courses:course_delete' course.id %}" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
         </li>
     {% endfor %}
     </ul>
+    {% if request.user.is_staff %}
     <p>
-        <a href="{% url 'courses:course_create' %}">Create a new course</a>
+        <a href="{% url 'courses:course_create' %}" class="btn btn-success">Create a new course</a>
     </p>
+    {% endif %}
 {% endblock content %}

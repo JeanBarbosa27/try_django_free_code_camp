@@ -6,34 +6,38 @@
 <h1 class="mb-5 text-center text-light bg-info">Products list</h1>
 <ul class="row pl-3">
 {% for product in products %}
-    <li class="col-3 p-0 mx-1 mb-2 card">
+    <li class="col-sm-12 col-lg-3 p-0 mr-2 mb-2 card">
         <a href={{product.get_absolute_url}} class="card-header" >{{product}}</a>
         <span class="card-body">{{product.description}}</span>
         <div class="card-footer btn-group d-flex justify-content-center align-items-center">
             <a
                 href="{{product.get_absolute_url}}"
-                class="btn btn-success"
+                class="btn btn-info"
             >View</a>
+            {% if request.user.is_staff %}
             <a
                 href="{% url 'products:update_product_model_form' product.id %}"
-                class="btn btn-info"
+                class="btn btn-primary"
             >Edit</a>
             <a
                 href="{% url 'products:product_delete' product.id %}"
                 class="btn btn-danger"
             >Delete</a>
+            {% endif %}
         </div>
     </li>
 {% endfor %}
 </ul>
+{% if request.user.is_staff %}
 <p class="btn-group">
     <a
         href={% url 'products:create_product_raw_form' %}
-        class="btn btn-info"
+        class="btn btn-primary"
     >Create product with raw form</a>
     <a
         href="{% url 'products:create_product_model_form' %}"
-        class="btn btn-primary"
+        class="btn btn-success"
     >Create product with model form</a>
 </p>
+{% endif %}
 {% endblock content %}
